@@ -33,7 +33,7 @@ templ RegisterPage(){
             </div>
 
             <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                <form class="space-y-6" hx-post="/login">
+                <form class="space-y-6" hx-post="/register">
                     <div>
                         <label
                             for="name"
@@ -80,6 +80,14 @@ templ RegisterPage(){
                     </div>
                 </form>
             </div>
+        </div>
+    }
+}
+
+templ IndexPage(){
+    @layout(){
+        <div class="flex items-center justify-center my-4">
+            <div class="text-7xl text-center">welcome to the fiberplate</div>
         </div>
     }
 }

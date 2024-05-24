@@ -12,3 +12,11 @@ func ParseBody(c *fiber.Ctx, body interface{}) *utils.RequestError {
 
 	return nil
 }
+
+func ParseBodyAndValidate(c *fiber.Ctx, body interface{}, v Validator) *utils.RequestError {
+	if err := ParseBody(c, body); err != nil {
+		return err
+	}
+
+	return v.Validate(body)
+}

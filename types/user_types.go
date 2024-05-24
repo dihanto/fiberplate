@@ -1,9 +1,7 @@
 package types
 
-type UserDTOBody struct {
-	Name string `json:"name"`
-	Age  uint16 `json:"age"`
-}
-type UserDTO struct {
-	User UserDTOBody `json:"user"`
+import "github.com/dihanto/fiberplate/model"
+
+type UserRequest struct {
+	User model.User `json:"user"`
 }

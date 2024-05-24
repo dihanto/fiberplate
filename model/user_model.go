@@ -4,8 +4,8 @@ import "github.com/google/uuid"
 
 type User struct {
 	ID   uuid.UUID `gorm:"primaryKey" json:"id"`
-	Name string    `gorm:"not null" json:"name" validate:"required, min=1"`
-	Age  uint16    `gorm:"" json:"description"`
+	Name string    `gorm:"not null" json:"name" validate:"required"`
+	Age  uint16    `gorm:"" json:"age"`
 }
 
 func (user *User) New(remote User) {
