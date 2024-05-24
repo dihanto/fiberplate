@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/a-h/templ"
-	"github.com/dihanto/fiberplate/model"
+	"github.com/dihanto/fiberplate/types"
 	"github.com/dihanto/fiberplate/view"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/adaptor"
@@ -19,11 +19,9 @@ func (h *Handler) VRegister(c *fiber.Ctx) error {
 }
 
 func (h *Handler) VRegisterPost(c *fiber.Ctx) error {
-	remoteData := &model.User{}
-	if err := ParseBodyAndValidate(c, remoteData, *h.validator); err != nil {
-		return err
-	}
-	h.CreateUser(c)
+	remoteData := &types.UserRequest{}
+
+	h.CreateUser(c, remoteData)
 
 	c.Response().Header.Set("HX-Redirect", "/")
 

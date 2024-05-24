@@ -1,7 +1,6 @@
 package types
 
-import "github.com/dihanto/fiberplate/model"
-
 type UserRequest struct {
-	User model.User `json:"user"`
+	Name string `json:"name" validate:"required"`
+	Age  uint16 `json:"age"`
 }
